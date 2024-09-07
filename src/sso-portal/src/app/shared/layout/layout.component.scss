@@ -1,0 +1,18 @@
+.layout-wrapper{
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    overflow-x: hidden;
+
+    .layout-header{
+        height: 80px;
+    }
+
+    .layout-content{
+        flex: 1;
+    }
+
+    .layout-footer{
+        height: auto;
+    }
+}

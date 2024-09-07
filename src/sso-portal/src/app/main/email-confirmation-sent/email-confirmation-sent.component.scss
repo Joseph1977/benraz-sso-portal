@@ -1,0 +1,74 @@
+@import "/src/variable.scss";
+
+.done-container {
+  &.done-page-background{
+    &::before{
+      content: "";
+      background-image: url(../../../assets/images/backgrounds/bottom.png);
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+      width: 100%;
+      height: 20%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    &::after{
+      content: "";
+      background-image: url(../../../assets/images/backgrounds/bottom-right.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: contain;
+      width: 100%;
+      height: 40%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .done-width{
+    width: 100%;
+    max-width: 456px;
+    z-index: 100;
+  }
+
+  .done-title{
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    color: $black;
+  }
+
+  .done-subtitle{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    color: $gray;
+  }
+
+  .done-button{
+    background-color: $primary-text-color;
+    color: $full-white;
+    padding: 1rem 1.5rem !important;
+    width: 100%;
+    border-radius: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .back-link{
+    text-decoration: none;
+    color: $gray;
+    cursor: pointer;
+
+    .back-icon{
+      height: 1.5rem;
+      margin-top: -0.25rem;
+      margin-right: 0.5rem;
+    }
+  }
+}

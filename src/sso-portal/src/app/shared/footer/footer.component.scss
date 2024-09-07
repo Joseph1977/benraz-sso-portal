@@ -1,0 +1,24 @@
+.footer {
+    padding: 16px;
+    padding-bottom: 0;
+    
+    .terms-privacy-container {
+        list-style: none;
+        margin-bottom: 0;
+        background: rgb(255,255,255, 0.6);
+        backdrop-filter: blur(4px);
+        border-radius: 12px 12px 0 0;
+        z-index: 10;
+        li {
+            text-align: center;
+            display: inline-block;
+            padding: 0 30px 5px 30px;
+
+            .footer-link {
+                margin-right: 0 !important;
+                color: #a5acb4;
+                font-weight: bold;
+            }
+        }
+    }
+}

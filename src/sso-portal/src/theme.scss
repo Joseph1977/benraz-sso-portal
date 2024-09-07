@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+@include mat.core();
+
+$app-indigo: (
+    50: #e7e9f1,
+    100: #c3c9dd,
+    200: #9ca6c5,
+    300: #7683ae,
+    400: #5a699e,
+    500: #3f508f,
+    600: #384986,
+    700: #303f7b,
+    800: #29366e,
+    900: #1e2657,
+    A100: #bcf0da,
+    A200: #8de6c2,
+    A400: #00d398,
+    A700: #00a66a,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: white,
+        A400: white,
+        A700: white,
+    )
+);
+
+$app-cyan: (
+    700: #117a8b,
+    contrast: (
+        700: white
+    )
+);
+
+$app-red: (
+    700: #dc3546,
+    contrast: (
+        700: white
+    )
+);
+
+$app-primary: mat.define-palette($app-indigo, 800, 900, 400);
+$app-accent: mat.define-palette($app-cyan, 700);
+$app-warn: mat.define-palette($app-red, 700);
+
+$app-theme: mat.define-light-theme($app-primary, $app-accent, $app-warn);
+
+@include mat.all-component-themes($app-theme);
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Work Sans, sans-serif'
+);
+@include mat.all-component-typographies($custom-typography);

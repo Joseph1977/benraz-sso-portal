@@ -1,0 +1,32 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div *ngIf="!isLoading" class="row justify-content-center px-3 h-100 done-container done-page-background">
+  <div class="col col-lg-6 col-xl-4 done-width">
+      <div class="row">
+        <div class="col-12 text-left pt-3">
+          <h4 class="done-subtitle">
+            <a class="back-link" (click)="onBack()">
+              <span>
+                <img class="back-icon" src="../../../assets/images/chevron.svg" alt="Create User">
+                Create User
+              </span>
+            </a>
+        </h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <img class="back-icon" src="../../../assets/images/almost-done.svg" alt="Almost Done!">
+        </div>
+        <div class="col-12 text-center pt-3">
+          <h1 class="done-title">Almost Done!</h1>
+        </div>
+        <div class="col-12 text-center pt-2">
+          <h4 class="done-subtitle">We sent you a confirmation email. Please, check your mailbox and confirm your email to finish the registration.</h4>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <button mat-raised-button class="done-button" (click)="onResendEmail()">Resend Email</button>
+        </div>
+      </div>
+  </div>
+</div>

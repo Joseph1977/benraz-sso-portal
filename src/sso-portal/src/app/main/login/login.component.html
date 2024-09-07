@@ -1,0 +1,123 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div *ngIf="!isLoading && !isMfaCodePage" class="row justify-content-center login-container px-3 h-100"
+[ngClass]="!isPasswordPage ? 'first-page-background' : 'second-page-background'">
+  <div class="col col-lg-6 col-xl-4 login-width" 
+  [ngClass]="!isPasswordPage ? 'login-first-page' : 'login-second-page'"
+  [ngClass]="isCenter() ? 'center' : ''">
+    <form [formGroup]="form">
+      <div *ngIf="!isPasswordPage, else passwordPage">
+        <div class="row">
+          <div class="col-12 text-left text-lg-center pt-3">
+            <h1 class="login-title">Sign in</h1>
+          </div>
+          <div class="col-12 text-left text-lg-center pt-3">
+            <h4 class="login-subtitle">To continue to Benraz platform</h4>
+          </div>
+        </div>
+        <div *ngIf="isSupported(ssoProviderCode.internal)" class="row">
+          <div class="col-12 d-flex justify-content-center pt-4">
+            <div class="login-field">
+              <span class="field-title">Username or Email</span>
+              <div class="field-input"
+                [ngClass]="{ 'invalid-error-box': !form.get('username').valid
+                && form.get('username')?.touched}">
+                <mat-form-field appearance="outline" class="w-100">
+                  <span matPrefix><img class="input-icon" src="../../../assets/images/person.svg"></span>
+                  <input matInput type="text" placeholder="Username or Email Address" formControlName="username" required maxlength="100"/>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="false" class="col-12 d-flex justify-content-center pt-2">
+            <div class="login-forgot-wrapper text-end">
+              <a class="login-forgot">Forgot your email?</a>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-center pt-4">
+            <button #btnNext mat-raised-button class="login-button" (click)="onNext()">Next</button>
+          </div>
+        </div>
+        <div class="divider" *ngIf="isDividerShown()">
+          <span class="small separator">OR</span>
+        </div>
+        <div *ngIf="isSupported(ssoProviderCode.microsoft) || isSupported(ssoProviderCode.facebook) || isSupported(ssoProviderCode.google)" class="row justify-content-between social-button-wrapper"
+        [ngClass]="!isDividerShown() ? 'pt-4' : ''">
+          <div *ngIf="isSupported(ssoProviderCode.microsoft)" class="col ps-0" [ngClass]="dynamicClasses(ssoProviderCode.microsoft)">
+            <button mat-stroked-button class="social-button" (click)="onLoginWithMicrosoft()">
+              <span class="d-inline-block microsoft">
+                <img class="social-icon" src="../../../assets/images/microsoft.svg" alt="Microsoft">
+              </span>
+              <span class="d-none d-lg-inline-block">Microsoft</span>
+            </button>
+          </div>
+          <div *ngIf="isSupported(ssoProviderCode.facebook)" class="col px-0">
+            <button mat-stroked-button class="social-button" (click)="onLoginWithFacebook()">
+              <span class="d-inline-block facebook">
+                <img class="social-icon" src="../../../assets/images/facebook.svg" alt="Facebook">
+              </span>
+              <span class="d-none d-lg-inline-block">Facebook</span>
+            </button>
+          </div>
+          <div *ngIf="isSupported(ssoProviderCode.google)" class="col pe-0" [ngClass]="dynamicClasses(ssoProviderCode.google)">
+            <button mat-stroked-button class="social-button" (click)="onLoginWithGoogle()">
+              <span class="d-inline-block google">
+                <img class="social-icon" src="../../../assets/images/google.svg" alt="Google">
+              </span>
+              <span class="d-none d-lg-inline-block">Google</span>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="isSupported(ssoProviderCode.internal)" class="row">
+          <div class="col pt-5">
+            <span class="login-create">Don’t have an account? <a (click)="onCreateAccount()" class="login-create-link">Create one!</a></span>
+          </div>
+        </div>
+      </div>
+      <ng-template #passwordPage>
+        <div class="row">
+          <div class="col-12 text-left text-lg-center pt-3">
+            <h1 class="login-title">Welcome</h1>
+          </div>
+          <div class="col-12 text-left pt-3">
+            <h4 class="login-subtitle">
+              <a class="back-link" (click)="onBack()">
+                <span>
+                  <img class="back-icon" src="../../../assets/images/chevron.svg" alt="My Email">
+                    My Email
+                </span>
+              </a>
+          </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center pt-4">
+            <div class="login-field">
+              <span class="field-title">Password</span>
+              <div class="field-input"
+                [ngClass]="{ 'invalid-error-box': !form.get('password').valid
+                && form.get('password')?.touched}">
+                <mat-form-field appearance="outline" class="w-100">
+                  <span matPrefix><img class="input-icon" src="../../../assets/images/lock.svg"></span>
+                  <input matInput [type]="!isPasswordShown ? 'password' : 'text'" placeholder="Password" formControlName="password" required maxlength="50"/>
+                  <span matSuffix><button mat-icon-button (click)="isPasswordShown = !isPasswordShown"><img class="input-icon" src="../../../assets/images/eye.svg"></button></span>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-center pt-2">
+            <div class="login-forgot-wrapper text-end">
+              <a (click)="onForgotPassword()" class="login-forgot">Forgot your password?</a>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-center pt-4">
+            <button #btnLogin mat-raised-button class="login-button" (click)="onLogin()">Next</button>
+          </div>
+        </div>
+      </ng-template>
+    </form>
+  </div>
+</div>
+<div *ngIf="!isLoading && isMfaCodePage">
+  <app-confirm-create-account [data]="mfaData" [userEmail]="form.get('username').value" (resend)="sendMfaConfirmationCode()" (back)="onBackToLogin()"></app-confirm-create-account>
+</div>

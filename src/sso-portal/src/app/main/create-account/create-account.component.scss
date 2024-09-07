@@ -1,0 +1,110 @@
+@import "/src/variable.scss";
+
+.create-container {
+  &.create-page-background{
+    &::before{
+      content: "";
+      background-image: url(../../../assets/images/backgrounds/bottom.png);
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+      width: 100%;
+      height: 20%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    &::after{
+      content: "";
+      background-image: url(../../../assets/images/backgrounds/bottom-right.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: contain;
+      width: 100%;
+      height: 40%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .create-link-wrapper{
+    .create-link{
+      text-decoration: none;
+      color: $primary-text-color;
+      cursor: pointer;
+    }
+  }
+
+  .create-width{
+    width: 100%;
+    max-width: 488px;
+    z-index: 100;
+    padding: 0 1rem 1rem 1rem;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%);
+  }
+
+  .create-title{
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    color: $black;
+  }
+
+  .create-subtitle{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    color: $gray;
+  }
+
+  .create-field{
+    width: 100%;
+
+    .field-title{
+      text-transform: uppercase;
+      color: $lightGray;
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-left: 2px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .input-icon{
+      height: 1.5rem;
+      margin-top: -0.75rem;
+    }
+  }
+
+  .create-button{
+    background-color: $primary-text-color;
+    color: $full-white;
+    padding: 1rem 1.5rem !important;
+    width: 100%;
+    border-radius: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .back-link{
+    text-decoration: none;
+    color: $gray;
+    cursor: pointer;
+
+    .back-icon{
+      height: 1.5rem;
+      margin-top: -0.25rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .mat-form-field-subscript-wrapper{
+    padding: 0 !important;
+    top: 3rem;
+  }
+}

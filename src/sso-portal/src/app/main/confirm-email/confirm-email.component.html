@@ -1,0 +1,23 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div *ngIf="!isLoading" class="row justify-content-center px-3 h-100 done-container done-page-background">
+  <div class="col col-lg-6 col-xl-4 done-width">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <img class="back-icon" src="{{emailConfirmed ? '../../../assets/images/hurray.svg' : '../../../assets/images/wrong.svg'}}" alt="{{emailConfirmed ? 'Hurray!' : 'Sorry something went wrong'}}">
+        </div>
+        <div class="col-12 text-center pt-3">
+          <h1 class="done-title">{{emailConfirmed ? 'Hurray!' : 'Sorry something went wrong'}}</h1>
+        </div>
+        <div class="col-12 text-center pt-2">
+          <h4 class="done-subtitle">{{emailConfirmed ? 
+            'Your email was successfully confirmed, now you may login.' : 
+            'Sorry, Your email was not confirmed, please call support or try later.'}}
+          </h4>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <button mat-raised-button class="done-button" (click)="onLogin()">Go to Login</button>
+        </div>
+      </div>
+  </div>
+</div>

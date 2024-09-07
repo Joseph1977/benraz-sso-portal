@@ -1,0 +1,33 @@
+@import "/src/variable.scss";
+
+.header-container {
+  height: 100%;
+  padding: 0 28px;
+
+  .header-logo{
+    padding-top: 12px;
+    z-index: 10;
+  }
+
+  .header-button{
+    border-radius: 0.75rem;
+    line-height: 1.5;
+    padding: 1rem !important;
+    color: $gray;
+    z-index: 10;
+
+    .globe{
+      .icon{
+        height: 1.5rem;
+        margin-top: -0.25rem;
+        margin-right: 0.5rem;
+
+        @media only screen and (max-width: 992px) {
+          height: 2rem;
+          margin-top: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

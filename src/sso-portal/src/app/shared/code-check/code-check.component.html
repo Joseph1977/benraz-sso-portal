@@ -1,0 +1,14 @@
+<div #codeFields class="row w-100 justify-content-between">
+  <div class="col code-check-wrapper" *ngFor="let data of inputs; let i = index; trackBy: trackByIndex">
+    <div class="code-check-field">
+      <div class="field-input" [ngClass]="{ 'invalid-error-box': false }">
+        <mat-form-field appearance="outline" class="w-100">
+          <input id="code-field-{{ i }}" matInput type="text" pattern="\d*" inputmode="numeric" class="code-input"
+            [(ngModel)]="inputs[i]" placeholder="0" maxlength="1" (input)="onDigitInput($event)"
+            (keyup)="onKeyUp($event, i)" (keydown)="onKeyDown($event, i)" (paste)="onPaste($event, i)"
+            [disabled]="disabled" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

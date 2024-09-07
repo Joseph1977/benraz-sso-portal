@@ -1,0 +1,52 @@
+name: $(Build.BuildId)
+
+trigger:
+- master
+- qa
+- on-going-dev
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  ${{ if eq(variables['Build.SourceBranchName'], 'on-going-dev') }}: 
+    repository: dev/$(Build.Repository.Name)
+    buildConfiguration: 'dev'
+  ${{ if eq(variables['Build.SourceBranchName'], 'qa') }}: 
+    repository: qa/$(Build.Repository.Name)
+    buildConfiguration: 'prod'
+  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+    repository: qa/$(Build.Repository.Name)
+    buildConfiguration: 'prod'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- task: npmAuthenticate@0
+  displayName: Authenticate npm 
+  inputs:
+    workingFile: '$(System.DefaultWorkingDirectory)/src/sso-portal/.npmrc'
+
+- task: Npm@1
+  displayName: install
+  inputs:
+    command: 'install'
+    workingDir: '$(System.DefaultWorkingDirectory)/src/sso-portal'
+
+- task: Npm@1
+  displayName: build
+  inputs:
+    command: 'custom'
+    customCommand: 'run build-$(buildConfiguration)'
+    workingDir: '$(System.DefaultWorkingDirectory)/src/sso-portal'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'acr-connection'
+    repository: '$(repository)'
+    command: 'buildAndPush'
+    Dockerfile: '$(System.DefaultWorkingDirectory)/src/sso-portal/Dockerfile'
+    buildContext: '$(System.DefaultWorkingDirectory)/src/sso-portal/'

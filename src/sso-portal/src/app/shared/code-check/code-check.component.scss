@@ -1,0 +1,26 @@
+.code-check-wrapper {
+  padding: 0;
+  text-align: center;
+
+  .code-check-field {
+    width: 100%;
+
+    .code-input {
+      caret-color: transparent;
+    }
+
+    .mat-form-field {
+      height: 4rem !important;
+      width: 4rem !important;
+      min-height: auto !important;
+      min-width: auto !important;
+
+      .mat-form-field-infix {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 14px 0;
+        width: 100%;
+      }
+    }
+  }
+}

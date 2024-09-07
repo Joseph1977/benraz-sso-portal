@@ -1,0 +1,113 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div *ngIf="!isLoading && !isMfaCodePage" class="row justify-content-center px-3 h-100 create-container create-page-background">
+  <div class="col col-lg-6 col-xl-4 create-width">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-12 text-left pt-3">
+          <h1 class="create-title">Create User</h1>
+        </div>
+        <div class="col-12 text-left text-lg-center pt-3">
+          <h4 class="create-subtitle">To continue to Benraz platform</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <div class="create-field">
+            <span class="field-title">Email</span>
+            <div class="field-input"
+              [ngClass]="{ 'invalid-error-box': !form.get('username').valid
+              && form.get('username')?.touched}">
+              <mat-form-field appearance="outline" class="w-100">
+                <span matPrefix><img class="input-icon" src="../../../assets/images/email.svg"></span>
+                <input matInput type="text" placeholder="Email" formControlName="username" required maxlength="100"/>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <div class="create-field">
+            <span class="field-title">First Name</span>
+            <div class="field-input"
+              [ngClass]="{ 'invalid-error-box': !form.get('firstName').valid
+              && form.get('firstName')?.touched}">
+              <mat-form-field appearance="outline" class="w-100">
+                <span matPrefix><img class="input-icon" src="../../../assets/images/person.svg"></span>
+                <input matInput type="text" placeholder="First Name" formControlName="firstName" required maxlength="100"/>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <div class="create-field">
+            <span class="field-title">Last Name</span>
+            <div class="field-input"
+              [ngClass]="{ 'invalid-error-box': !form.get('lastName').valid
+              && form.get('lastName')?.touched}">
+              <mat-form-field appearance="outline" class="w-100">
+                <span matPrefix><img class="input-icon" src="../../../assets/images/person.svg"></span>
+                <input matInput type="text" placeholder="Last Name" formControlName="lastName" required maxlength="100"/>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <div class="create-field">
+            <span class="field-title">Phone</span>
+            <div class="field-input"
+              [ngClass]="{ 'invalid-error-box': !form.get('phoneNumber').valid
+              && form.get('phoneNumber')?.touched}">
+              <mat-form-field appearance="outline" class="w-100">
+                <span matPrefix><img class="input-icon" src="../../../assets/images/phone.svg"></span>
+                <input matInput type="text" placeholder="Phone" formControlName="phoneNumber" mask="(000) 000-0000"/>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <div class="create-field">
+            <span class="field-title">Password</span>
+            <div class="field-input"
+              [ngClass]="{ 'invalid-error-box': !form.get('password').valid
+              && form.get('password')?.touched}">
+              <mat-form-field appearance="outline" class="w-100">
+                <span matPrefix><img class="input-icon" src="../../../assets/images/lock.svg"></span>
+                <input matInput [type]="!isPasswordShown ? 'password' : 'text'" placeholder="Password" formControlName="password" required maxlength="50"/>
+                <span matSuffix><button mat-icon-button (click)="isPasswordShown = !isPasswordShown"><img class="input-icon" src="../../../assets/images/eye.svg"></button></span>
+                <mat-hint> {{ ValidationRules.PASSWORD_HINT }} </mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-5">
+          <div class="create-field">
+            <span class="field-title">Repeat Password</span>
+            <div class="field-input"
+              [ngClass]="{ 'invalid-error-box': !form.get('repeatPassword').valid
+              && form.get('repeatPassword')?.touched}">
+              <mat-form-field appearance="outline" class="w-100">
+                <span matPrefix><img class="input-icon" src="../../../assets/images/lock.svg"></span>
+                <input matInput [type]="!isRepeatPasswordShown ? 'password' : 'text'" placeholder="Repeat Password" formControlName="repeatPassword" required maxlength="50"/>
+                <span matSuffix><button mat-icon-button (click)="isRepeatPasswordShown = !isRepeatPasswordShown"><img class="input-icon" src="../../../assets/images/eye.svg"></button></span>
+                <mat-error *ngIf="form.get('repeatPassword').errors?.passwords">
+                  {{ form.get('repeatPassword').errors?.passwords }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center pt-4">
+          <button mat-raised-button class="create-button" (click)="onCreateAccount()">Create Account</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col pt-5">
+          <span class="create-link-wrapper">Already have an account? <a (click)="onBack()" class="create-link">Log In</a></span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div *ngIf="!isLoading && isMfaCodePage">
+  <app-confirm-create-account [data]="mfaData" [userEmail]="form.get('username').value" (resend)="sendMfaConfirmationCode()" (back)="onBackToCreate()"></app-confirm-create-account>
+</div>

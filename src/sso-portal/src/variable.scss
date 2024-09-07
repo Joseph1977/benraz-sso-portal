@@ -1,0 +1,42 @@
+$white-color:#fff;
+$primary-text-color: #0d6efd;
+$theme-primary-button-color: #0d6efd;
+$btn-primary-text-color: $white-color;
+$app-google: $white-color;
+$theme-secondary-button-color: #b5b8ed;
+$btn-secondary-text-color: $white-color;
+$primary: #303f7b;
+$green: #1eb773;
+$blue: #0070ba;
+$red: #fd264a;
+$lightGray: #B2B5C2;
+$gray: #787E8E;
+$lighterGray: #E6E8EC;
+$black: #24262E;
+$ghost-white: #f8f8f9;
+$full-white: #ffffff;
+$light-red: #ed725d;
+$background: #E5E5E5;
+
+$font: "Poppins";
+
+$app-googleblue: (
+  700: #4285f4,
+  contrast: (
+    700: #4285f4,
+  ),
+);
+
+$app-facebookblue: (
+  700: #3a5a99,
+  contrast: (
+    700: white,
+  ),
+);
+
+$app-microsoftgray: (
+  700: #404040,
+  contrast: (
+    700: white,
+  ),
+);
