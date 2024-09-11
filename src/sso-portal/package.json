@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
     "start-local": "ng serve --host 0.0.0.0 --port 4204",
-    "build": "ng build",
-    "build-dev": "ng build --configuration=dev",
-    "build-prod": "ng build --configuration=production",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && ng build",
+    "build-dev": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --configuration=dev",
+    "build-prod": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
