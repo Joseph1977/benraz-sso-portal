@@ -5,7 +5,7 @@ export const environment = {
     endpoint: 'https://api-prod.benraz.com/authorization-server/v1/auth/login'
   },
   defaultApplication: null,
-  googleAnalyticsID: 'G-X6JB2YL3Q6',
+  googleAnalyticsID: 'G-888888',
   qa: {
     apiBaseUrl: 'https://qa.benraz.com/authorization-server/v1',
     authorization: {
