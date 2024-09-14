@@ -5,12 +5,12 @@ import {
   ViewEncapsulation,
   HostListener,
   ViewChild,
-  ElementRef 
+  ElementRef
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService, UserService } from '@josephbenraz/ngx-authorization';
-import { InternalUrlsService, NotificationService, ValidationService } from '@josephbenraz/ngx-common';
+import { AuthService, UserService } from '@josephbenraz/npm-authorization';
+import { InternalUrlsService, NotificationService, ValidationService } from '@josephbenraz/npm-common';
 import { environment } from '../../../environments/environment';
 import { AuthorizationFailedReasonCode, CreateMfaModel, Login, MfaCode, MfaData, MfaMode } from '../../shared/shared.model';
 import { State } from '../../shared/state/state.model';
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   mfaData: MfaData;
   @ViewChild('btnLogin', { read: ElementRef }) btnLogin : ElementRef;
   @ViewChild('btnNext', { read: ElementRef }) btnNext : ElementRef;
-  
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -271,7 +271,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     }
   }
-  
+
   private ssoLogin(ssoProvider: string) {
     this.isLoading = true;
 

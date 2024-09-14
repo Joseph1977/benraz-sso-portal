@@ -1,8 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '@josephbenraz/ngx-authorization';
-import { NotificationService, ValidationService } from '@josephbenraz/ngx-common';
+import { AuthService } from '@josephbenraz/npm-authorization';
+import { NotificationService, ValidationService } from '@josephbenraz/npm-common';
 import { Subject } from 'rxjs';
 import { GetTokenByMfaCodeModel, MfaCode, MfaCodeToken, MfaData } from '../../../shared/shared.model';
 import { InternalLoginService } from '../../internal-login.service';
@@ -48,7 +48,7 @@ export class ConfirmCreateAccountComponent implements OnInit, OnDestroy {
     if(this.data){
       this.mfaCodeLength = this.data.numberOfDigits;
     }
-    
+
     this.generateForm();
   }
 
@@ -57,7 +57,7 @@ export class ConfirmCreateAccountComponent implements OnInit, OnDestroy {
   }
 
   onBack() {
-    this.resetSubject.next();
+    this.resetSubject.next(null);
     this.form.reset();
     this.back.emit();
   }
@@ -77,7 +77,7 @@ export class ConfirmCreateAccountComponent implements OnInit, OnDestroy {
 
     if (this.form.invalid) {
       this.notificationService.error('Code is not valid');
-      this.resetSubject.next();
+      this.resetSubject.next(null);
       this.form.reset();
       this.isCodeDisabled = false;
       this.isLoading = false;
@@ -99,7 +99,7 @@ export class ConfirmCreateAccountComponent implements OnInit, OnDestroy {
         },
         error => {
           this.notificationService.error(error);
-          this.resetSubject.next();
+          this.resetSubject.next(null);
           this.form.reset();
           this.isCodeDisabled = false;
           this.isLoading = false;
