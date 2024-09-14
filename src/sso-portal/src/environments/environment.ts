@@ -4,8 +4,8 @@ export const environment = {
   authorization: {
     endpoint: 'http://localhost:60341/v1/auth/login'
   },
-  defaultApplication: null,
-  googleAnalyticsID: 'G-JRFW0E7W4J',
+  defaultApplication: 'd5069819-1256-4aef-9341-2628237c8ee6',
+  googleAnalyticsID: 'G-*******',
   qa: {
     apiBaseUrl: null,
     authorization: {
