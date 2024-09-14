@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '@josephbenraz/ngx-authorization';
-import { ValidationService, NotificationService } from '@josephbenraz/ngx-common';
+import { AuthService } from '@josephbenraz/npm-authorization';
+import { ValidationService, NotificationService } from '@josephbenraz/npm-common';
 import { SetPassword, ValidationRules } from '../../shared/shared.model';
 import { FragmentService } from '../../shared/fragment.service';
 import { InternalLoginService } from '../internal-login.service';
@@ -45,7 +45,7 @@ export class SetPasswordComponent implements OnInit, OnDestroy {
     { isValid: false, regexp: '(?=.*[0-9])', message: '1+ digit (‘0’-’9’)' },
   ]
   @ViewChild('btnChangePassword', { read: ElementRef }) btnChangePassword : ElementRef;
-  
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,

@@ -3,11 +3,10 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from '@angular/cdk/clipboard';
-import { NgxMaskModule } from 'ngx-mask';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
-import { BenrazNgxCommonModule } from '@josephbenraz/ngx-common';
-import { BenrazNgxAuthorizationModule } from '@josephbenraz/ngx-authorization';
+import { BenrazNgxCommonModule } from '@josephbenraz/npm-common';
+import { BenrazNgxAuthorizationModule } from '@josephbenraz/npm-authorization';
 
 import { SharedMaterialModule } from './shared-material.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -28,7 +27,6 @@ import { CountDownComponent } from './count-down/count-down.component';
         FormsModule,
         ReactiveFormsModule,
         ClipboardModule,
-        NgxMaskModule.forChild(),
         NgScrollbarModule,
         SharedMaterialModule,
         BenrazNgxCommonModule,
@@ -50,7 +48,6 @@ import { CountDownComponent } from './count-down/count-down.component';
         FormsModule,
         ReactiveFormsModule,
         ClipboardModule,
-        NgxMaskModule,
         NgScrollbarModule,
         SharedMaterialModule,
         BenrazNgxCommonModule,

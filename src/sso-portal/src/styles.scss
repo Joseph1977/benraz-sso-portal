@@ -377,7 +377,7 @@ a:hover {
   .mat-form-field-outline-thick {
     color: transparent;
   }
-  
+
   .mat-form-field-outline {
     top: 0 !important;
 
@@ -399,7 +399,7 @@ a:hover {
       color: $gray !important;
     }
   }
-  
+
   .mat-form-field-infix {
     border-top: 0;
     line-height: 1.5;
@@ -417,7 +417,7 @@ a:hover {
     line-height: .01rem;
     margin: 1.5rem 0;
     border-bottom: 1px solid $lighterGray;
-    
+
     .separator {
       background: #fff;
       padding: 0 16px;
@@ -438,5 +438,95 @@ a:hover {
     justify-content: center;
     gap: 10px;
     align-items: center;
+  }
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.5rem;
+  margin: 12px;
+  color: var(--grey);
+}
+
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-icon-button,
+.mat-mdc-fab,
+.mat-mdc-mini-fab {
+  line-height: 1.5 !important;
+
+  &.large {
+    height: 3.5rem;
+    min-height: 3.5rem;
+    max-height: 3.5rem;
+  }
+
+  &.regular {
+    height: 3rem;
+    min-height: 3rem;
+    max-height: 3rem;
+  }
+
+  &.small {
+    height: 2rem;
+    min-height: 2rem;
+    max-height: 2rem;
+  }
+
+  &[disabled='true'] {
+    .mat-icon {
+      opacity: 0.38 !important;
+    }
+  }
+
+  &.shining {
+    border: 0.0625rem solid inherit;
+    animation: shining infinite 2s;
+
+    &:hover {
+      animation: none;
+    }
+
+    @keyframes shining {
+      0%,
+      100% {
+        border-color: inherit;
+      }
+
+      50% {
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+/* Icon buttons */
+.mat-mdc-icon-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+
+  &.large {
+    width: 3.5rem;
+  }
+
+  &.regular {
+    width: 3rem;
+  }
+
+  &.small {
+    width: 2rem;
+  }
+
+  svg,
+  img {
+    height: auto !important;
   }
 }

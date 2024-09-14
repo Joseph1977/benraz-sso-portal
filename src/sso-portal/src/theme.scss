@@ -37,27 +37,38 @@ $app-indigo: (
 
 $app-cyan: (
     700: #117a8b,
+    100: #a8e0e9,
     contrast: (
-        700: white
+        700: white,
+        100: $black-87-opacity
     )
 );
 
 $app-red: (
     700: #dc3546,
+    100: #f8d7da,
     contrast: (
-        700: white
+        700: white,
+        100: $black-87-opacity
     )
 );
 
 $app-primary: mat.define-palette($app-indigo, 800, 900, 400);
-$app-accent: mat.define-palette($app-cyan, 700);
-$app-warn: mat.define-palette($app-red, 700);
+$app-accent: mat.define-palette($app-cyan, 700, 100, 700);
+$app-warn: mat.define-palette($app-red, 700, 100, 700);
 
-$app-theme: mat.define-light-theme($app-primary, $app-accent, $app-warn);
-
-@include mat.all-component-themes($app-theme);
-
-$custom-typography: mat.define-typography-config(
+$app-typography: mat.define-typography-config(
   $font-family: 'Work Sans, sans-serif'
 );
-@include mat.all-component-typographies($custom-typography);
+
+$app-theme: mat.define-light-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+  ),
+  typography: $app-typography,
+  density: 0,
+));
+
+@include mat.all-component-themes($app-theme);

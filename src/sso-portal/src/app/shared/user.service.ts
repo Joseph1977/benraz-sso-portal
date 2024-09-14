@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
-import { AuthService } from '@josephbenraz/ngx-authorization';
+import { AuthService } from '@josephbenraz/npm-authorization';
 
 export class User {
   isAuthenticated: boolean;
@@ -74,7 +74,7 @@ export class UserService {
 
   private getDecodedAccessToken(token: string): any {
     try {
-      return jwt_decode(token);
+      return jwt_decode.jwtDecode(token);
     } catch (Error) {
       return null;
     }
