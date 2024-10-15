@@ -1,7 +1,8 @@
 # benraz-sso-portal
+SSO Frontend Application (Angular 12.0):
 
-Angular 12
-----------
+A frontend portal that facilitates single sign-on for users across multiple applications.
+
 
 # build instruction
 npm cache clean --force 
