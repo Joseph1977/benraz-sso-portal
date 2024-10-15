@@ -2,7 +2,7 @@
 SSO Frontend Application (Angular 12.0):
 
 A frontend portal that facilitates single sign-on for users across multiple applications.
-
+for more details: https://github.com/Joseph1977/Benraz-AuthorizationServer
 
 # build instruction
 npm cache clean --force 
