@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 export class CodeCheckComponent implements OnInit, OnDestroy {
   @Input() count: number = 5;
   @Input() disabled: boolean = false;
-  @Input() result: FormControl = undefined;
+  @Input() result: UntypedFormControl = undefined;
   @Input() resetSubject: Subject<any>;
   @ViewChild('codeFields') codeFields: ElementRef<HTMLElement>;
 
@@ -25,7 +25,7 @@ export class CodeCheckComponent implements OnInit, OnDestroy {
       this.reset();
     });
     this.inputs = new Array<number>(this.count);
-    this.result = this.result === undefined ? new FormControl() : this.result;
+    this.result = this.result === undefined ? new UntypedFormControl() : this.result;
   }
 
   ngOnDestroy() {

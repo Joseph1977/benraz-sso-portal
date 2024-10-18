@@ -145,7 +145,6 @@
       }
     }
   },
-  "defaultProject": "sso-portal",
   "cli": {
     "analytics": false
   }

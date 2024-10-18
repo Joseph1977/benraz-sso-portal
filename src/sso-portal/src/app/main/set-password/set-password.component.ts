@@ -8,7 +8,7 @@ import {
   ElementRef
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@josephbenraz/ngx-authorization';
 import { ValidationService, NotificationService } from '@josephbenraz/ngx-common';
 import { SetPassword, ValidationRules } from '../../shared/shared.model';
@@ -35,7 +35,7 @@ export class SetPasswordComponent implements OnInit, OnDestroy {
   symbols: string = '~!@-#$';
   numbers: string = '0123456789';
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   passwordValidationRules = [
     { isValid: false, regexp: '.{8,}', message: '8+ characters' },
@@ -49,7 +49,7 @@ export class SetPasswordComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private internalLoginService: InternalLoginService,
     private fragmentService: FragmentService,
     private notificationService: NotificationService,

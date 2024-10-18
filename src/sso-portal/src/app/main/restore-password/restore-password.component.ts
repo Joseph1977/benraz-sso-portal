@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NotificationService, ValidationService } from '@josephbenraz/ngx-common';
 import { CreateMfaModel, MfaCode, MfaData, MfaMode } from '../../shared/shared.model';
 import { InternalLoginService } from '../internal-login.service';
@@ -14,11 +14,11 @@ export class RestorePasswordComponent implements OnInit, OnDestroy {
   mfaData: MfaData;
   isLoading = false;
   isMfaCodePage: boolean = false;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private internalLoginService: InternalLoginService,
     private notificationService: NotificationService,
     private validationService: ValidationService,

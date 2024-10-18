@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as jwt_decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import { AuthService } from '@josephbenraz/ngx-authorization';
 
 export class User {
@@ -56,6 +56,7 @@ export class UserService {
   }
 
   private createUser(accessToken: string): User {
+    debugger
     const jwt = this.getDecodedAccessToken(accessToken);
     if (!jwt) {
       return User.createDefault();

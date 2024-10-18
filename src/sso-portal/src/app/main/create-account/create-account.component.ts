@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ValidationService, NotificationService, CustomValidators } from '@josephbenraz/ngx-common';
 import { CreateMfaModel, MfaCode, MfaData, MfaMode, SignUp, SignUpResult, ValidationRules } from '../../shared/shared.model';
 import { InternalLoginService } from '../internal-login.service';
@@ -20,12 +20,12 @@ export class CreateAccountComponent implements OnInit {
   isPasswordShown = false;
   isRepeatPasswordShown = false;
   isMfaCodePage: boolean = false;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private internalLoginService: InternalLoginService,
     private notificationService: NotificationService,
     private validationService: ValidationService) {

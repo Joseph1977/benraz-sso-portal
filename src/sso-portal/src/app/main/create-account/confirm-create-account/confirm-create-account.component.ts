@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@josephbenraz/ngx-authorization';
 import { NotificationService, ValidationService } from '@josephbenraz/ngx-common';
@@ -25,14 +25,14 @@ export class ConfirmCreateAccountComponent implements OnInit, OnDestroy {
   isTimerFinished = false;
   isCodeDisabled = false;
   resetSubject = new Subject();
-  form: FormGroup;
+  form: UntypedFormGroup;
   mfaCodeToken: MfaCodeToken;
 
   @ViewChild('codeSubmit') codeSubmit: ElementRef;
 
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private internalLoginService: InternalLoginService,
     private notificationService: NotificationService,
     private validationService: ValidationService,

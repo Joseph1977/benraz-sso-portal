@@ -8,7 +8,7 @@ import {
   ElementRef 
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService, UserService } from '@josephbenraz/ngx-authorization';
 import { InternalUrlsService, NotificationService, ValidationService } from '@josephbenraz/ngx-common';
 import { environment } from '../../../environments/environment';
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   isLoading = false;
   isPasswordShown = false;
-  form: FormGroup;
+  form: UntypedFormGroup;
   state: string;
   enabledSsoProviders: SsoProvider[];
   ssoProviderCode = SsoProviderCode;
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private internalLoginService: InternalLoginService,
     private authService: AuthService,
     private userService: UserService,
@@ -147,7 +147,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.notifyError(loginResult.error);
             return;
           }
-
+debugger
           this.authService.setToken(loginResult.accessToken);
           const user = this.userService.createUserFromToken(loginResult.accessToken);
           if (user.isPasswordExpired) {
