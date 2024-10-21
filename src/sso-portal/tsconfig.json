@@ -12,6 +12,7 @@
     "importHelpers": true,
     "target": "ES2022",
     "preserveSymlinks": true,
+    "noImplicitOverride": true,
     "typeRoots": [
       "node_modules/@types"
     ],

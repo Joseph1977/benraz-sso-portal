@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { AuthService } from '@josephbenraz/ngx-authorization';
-import { ValidationService, NotificationService } from '@josephbenraz/ngx-common';
+import { AuthService } from '@josephbenraz/npm-authorization';
+import { ValidationService, NotificationService } from '@josephbenraz/npm-common';
 import { SetPassword, ValidationRules } from '../../shared/shared.model';
 import { FragmentService } from '../../shared/fragment.service';
 import { InternalLoginService } from '../internal-login.service';

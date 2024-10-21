@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { AuthService, UserService } from '@josephbenraz/ngx-authorization';
-import { InternalUrlsService, NotificationService, ValidationService } from '@josephbenraz/ngx-common';
+import { AuthService, UserService } from '@josephbenraz/npm-authorization';
+import { InternalUrlsService, NotificationService, ValidationService } from '@josephbenraz/npm-common';
 import { environment } from '../../../environments/environment';
 import { AuthorizationFailedReasonCode, CreateMfaModel, Login, MfaCode, MfaData, MfaMode } from '../../shared/shared.model';
 import { State } from '../../shared/state/state.model';

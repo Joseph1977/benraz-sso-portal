@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { NotificationService, ValidationService } from '@josephbenraz/ngx-common';
+import { NotificationService, ValidationService } from '@josephbenraz/npm-common';
 import { CreateMfaModel, MfaCode, MfaData, MfaMode } from '../../shared/shared.model';
 import { InternalLoginService } from '../internal-login.service';
 

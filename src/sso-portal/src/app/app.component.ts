@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd, UrlSerializer } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { EnvironmentsService, EnvironmentsServiceConfig } from '@josephbenraz/ngx-common';
+import { EnvironmentsService, EnvironmentsServiceConfig } from '@josephbenraz/npm-common';
 import { environment } from 'src/environments/environment';
 
 // adding Google analytics

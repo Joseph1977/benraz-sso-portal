@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NotificationService } from '@josephbenraz/ngx-common';
+import { NotificationService } from '@josephbenraz/npm-common';
 import { SendConfirmationEmail } from '../../shared/shared.model';
 import { InternalLoginService } from '../internal-login.service';
 
