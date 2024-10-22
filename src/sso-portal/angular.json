@@ -99,18 +99,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "sso-portal:build"
+            "browserTarget": "sso-portal:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "sso-portal:build:production"
+              "browserTarget": "sso-portal:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "sso-portal:build"
+            "browserTarget": "sso-portal:build"
           }
         },
         "test": {
