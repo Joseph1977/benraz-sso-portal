@@ -1,8 +1,8 @@
 @import "/src/variable.scss";
 
 .create-container {
-  &.create-page-background{
-    &::before{
+  &.create-page-background {
+    &::before {
       content: "";
       background-image: url(../../../assets/images/backgrounds/bottom.png);
       background-repeat: no-repeat;
@@ -15,7 +15,7 @@
       left: 0;
     }
 
-    &::after{
+    &::after {
       content: "";
       background-image: url(../../../assets/images/backgrounds/bottom-right.png);
       background-repeat: no-repeat;
@@ -29,24 +29,24 @@
     }
   }
 
-  .create-link-wrapper{
-    .create-link{
+  .create-link-wrapper {
+    .create-link {
       text-decoration: none;
       color: $primary-text-color;
       cursor: pointer;
     }
   }
 
-  .create-width{
+  .create-width {
     width: 100%;
     max-width: 488px;
     z-index: 100;
     padding: 0 1rem 1rem 1rem;
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0) 100%);
   }
 
-  .create-title{
+  .create-title {
     font-size: 2rem;
     font-weight: 500;
     line-height: 1.5;
@@ -54,7 +54,7 @@
     color: $black;
   }
 
-  .create-subtitle{
+  .create-subtitle {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -62,10 +62,10 @@
     color: $gray;
   }
 
-  .create-field{
+  .create-field {
     width: 100%;
 
-    .field-title{
+    .field-title {
       text-transform: uppercase;
       color: $lightGray;
       font-size: 0.75rem;
@@ -77,7 +77,7 @@
     }
   }
 
-  .create-button{
+  .create-button {
     background-color: $primary-text-color;
     color: $full-white;
     padding: 1rem 1.5rem !important;
@@ -86,20 +86,24 @@
     line-height: 1.5;
   }
 
-  .back-link{
+  .back-link {
     text-decoration: none;
     color: $gray;
     cursor: pointer;
 
-    .back-icon{
+    .back-icon {
       height: 1.5rem;
       margin-top: -0.25rem;
       margin-right: 0.5rem;
     }
   }
 
-  .mat-form-field-subscript-wrapper{
+  .mat-mdc-form-field-subscript-wrapper {
     padding: 0 !important;
-    top: 3rem;
+
+    .mat-mdc-form-field-hint {
+      line-height: 1.125 !important;
+      letter-spacing: 0 !important;
+    }
   }
 }
