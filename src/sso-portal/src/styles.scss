@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
-@import "~material-icons/iconfont/material-icons.css";
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "material-icons/iconfont/material-icons.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 @import "theme.scss";
 @import "variable.scss";
 
@@ -32,7 +32,7 @@ h4,
 .mat-mdc-card-title-group,
 .mat-mdc-card-title,
 .mat-mdc-card-subtitle {
-  color: mat.get-color-from-palette($app-primary, 700);
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 }
 
 h1,
@@ -114,7 +114,7 @@ body {
 
 .mat-toolbar {
   background: #fff;
-  color: mat.get-color-from-palette($app-primary, 700);
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 
   .mat-toolbar-row {
     height: 50px;
@@ -229,11 +229,11 @@ router-outlet+* {
 }
 
 a {
-  color: mat.get-color-from-palette($app-primary, 500);
+  color: mat.m2-get-color-from-palette($app-primary, 500);
 }
 
 a:hover {
-  color: mat.get-color-from-palette($app-primary, 700);
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 }
 
 /* Buttons */
@@ -281,7 +281,7 @@ a:hover {
 .mat-mdc-list-item,
 .mat-mdc-list-item .mat-icon-no-color,
 .mat-mdc-list-item span {
-  color: mat.get-color-from-palette($app-primary, 700);
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 }
 
 /* Actions */
