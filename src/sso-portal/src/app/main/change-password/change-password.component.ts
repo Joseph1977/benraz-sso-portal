@@ -8,9 +8,9 @@ import {
   ElementRef
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '@josephbenraz/ngx-authorization';
-import { NotificationService, ValidationService } from '@josephbenraz/ngx-common';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AuthService } from '@josephbenraz/npm-authorization';
+import { NotificationService, ValidationService } from '@josephbenraz/npm-common';
 import { ChangePassword, ValidationRules } from '../../shared/shared.model';
 import { UserService } from '../../shared/user.service';
 import { State } from '../../shared/state/state.model';
@@ -31,12 +31,12 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
   isOldPasswordShown = false;
   isNewPasswordShown = false;
   isRepeatNewPasswordShown = false;
-  form: FormGroup;
+  form: UntypedFormGroup;
   @ViewChild('btnChangePassword', { read: ElementRef }) btnChangePassword : ElementRef;
   
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private internalLoginService: InternalLoginService,
     private authService: AuthService,
     private userService: UserService,

@@ -3,11 +3,11 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from '@angular/cdk/clipboard';
-import { NgxMaskModule } from 'ngx-mask';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
-import { BenrazNgxCommonModule } from '@josephbenraz/ngx-common';
-import { BenrazNgxAuthorizationModule } from '@josephbenraz/ngx-authorization';
+import { BenrazNgxCommonModule } from '@josephbenraz/npm-common';
+import { BenrazNgxAuthorizationModule } from '@josephbenraz/npm-authorization';
 
 import { SharedMaterialModule } from './shared-material.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -28,11 +28,12 @@ import { CountDownComponent } from './count-down/count-down.component';
         FormsModule,
         ReactiveFormsModule,
         ClipboardModule,
-        NgxMaskModule.forChild(),
         NgScrollbarModule,
         SharedMaterialModule,
         BenrazNgxCommonModule,
-        BenrazNgxAuthorizationModule
+        BenrazNgxAuthorizationModule,
+        NgxMaskDirective, 
+	    NgxMaskPipe
     ],
     declarations: [
         LoaderComponent,
@@ -42,7 +43,9 @@ import { CountDownComponent } from './count-down/count-down.component';
         CodeCheckComponent,
         CountDownComponent
     ],
-    providers: [],
+    providers: [
+        provideNgxMask()
+    ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     exports: [
         CommonModule,
@@ -50,14 +53,15 @@ import { CountDownComponent } from './count-down/count-down.component';
         FormsModule,
         ReactiveFormsModule,
         ClipboardModule,
-        NgxMaskModule,
         NgScrollbarModule,
         SharedMaterialModule,
         BenrazNgxCommonModule,
         BenrazNgxAuthorizationModule,
         LoaderComponent,
         CodeCheckComponent,
-        CountDownComponent
+        CountDownComponent,
+	    NgxMaskDirective, 
+	    NgxMaskPipe
     ]
 })
 export class SharedModule {

@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { EnvironmentsService, EnvironmentsServiceConfig, BenrazNgxCommonModule } from '@josephbenraz/ngx-common';
-import { AuthInterceptorService, PolicyRegistration, BenrazNgxAuthorizationModule } from '@josephbenraz/ngx-authorization';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { EnvironmentsService, EnvironmentsServiceConfig, BenrazNgxCommonModule } from '@josephbenraz/npm-common';
+import { AuthInterceptorService, PolicyRegistration, BenrazNgxAuthorizationModule } from '@josephbenraz/npm-authorization';
 import { environment } from '../../environments/environment';
 import { SharedModule } from '../shared/shared.module';
 import { Claims, Policies } from '../shared/shared.model';
 
 @NgModule({
+    declarations: [],
+    exports: [], 
     imports: [
-        HttpClientModule,
         SharedModule,
         BenrazNgxCommonModule.forRoot({
             companySubdomain: 'benraz',
@@ -23,17 +24,15 @@ import { Claims, Policies } from '../shared/shared.model';
             policies: [
                 PolicyRegistration.claimsPolicy(Policies.PROFILE_SET_PASSWORD, [Claims.PROFILE_SET_PASSWORD])
             ]
-        })
-    ],
-    declarations: [],
-    providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthInterceptorService,
-            multi: true
-        }
-    ],
-    exports: []
+        })],
+        providers: [
+            {
+                provide: HTTP_INTERCEPTORS,
+                useClass: AuthInterceptorService,
+                multi: true
+            },
+            provideHttpClient(withInterceptorsFromDi())
+        ]
 })
 export class CoreModule {
     static companySubdomain = 'benraz';

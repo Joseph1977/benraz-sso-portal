@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
-@import "~material-icons/iconfont/material-icons.css";
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "material-icons/iconfont/material-icons.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 @import "theme.scss";
 @import "variable.scss";
 
@@ -17,7 +17,7 @@ body {
   color: $gray;
 }
 
-.mat-input-element {
+.mat-mdc-input-element {
   color: #333 !important;
 }
 
@@ -29,10 +29,10 @@ h4,
 .h2,
 .h3,
 .h4,
-.mat-card-title-group,
-.mat-card-title,
-.mat-card-subtitle {
-  color: mat.get-color-from-palette($app-primary, 700);
+.mat-mdc-card-title-group,
+.mat-mdc-card-title,
+.mat-mdc-card-subtitle {
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 }
 
 h1,
@@ -114,7 +114,7 @@ body {
 
 .mat-toolbar {
   background: #fff;
-  color: mat.get-color-from-palette($app-primary, 700);
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 
   .mat-toolbar-row {
     height: 50px;
@@ -153,7 +153,7 @@ body {
   padding: 12px 0 12px;
 }
 
-.mat-toolbar + .main-container {
+.mat-toolbar+.main-container {
   height: calc(100% - 50px);
 }
 
@@ -199,13 +199,13 @@ body {
   max-width: inherit;
 }
 
-router-outlet + * {
+router-outlet+* {
   width: 100%;
   height: 100%;
 }
 
 /* Dialog */
-.mat-dialog-container {
+.mat-mdc-dialog-container {
   font-size: 14px;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -216,7 +216,7 @@ router-outlet + * {
   background: rgba(0, 0, 0, 0.32);
 }
 
-.scroll-blackdrop + .cdk-global-overlay-wrapper {
+.scroll-blackdrop+.cdk-global-overlay-wrapper {
   display: flex;
   position: absolute;
   z-index: 1000;
@@ -229,17 +229,17 @@ router-outlet + * {
 }
 
 a {
-  color: mat.get-color-from-palette($app-primary, 500);
+  color: mat.m2-get-color-from-palette($app-primary, 500);
 }
 
 a:hover {
-  color: mat.get-color-from-palette($app-primary, 700);
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 }
 
 /* Buttons */
-.mat-raised-button,
-.mat-flat-button,
-.mat-stroked-button {
+.mat-mdc-raised-button,
+.mat-mdcflat-button,
+.mat-mdc-stroked-button {
   padding: 4px 16px !important;
   font-size: 16px;
 }
@@ -274,18 +274,18 @@ a:hover {
   padding: 12px !important;
 }
 
-.mat-list-item span {
+.mat-mdc-list-item span {
   margin-left: 12px;
 }
 
-.mat-list-item,
-.mat-list-item .mat-icon-no-color,
-.mat-list-item span {
-  color: mat.get-color-from-palette($app-primary, 700);
+.mat-mdc-list-item,
+.mat-mdc-list-item .mat-icon-no-color,
+.mat-mdc-list-item span {
+  color: mat.m2-get-color-from-palette($app-primary, 700);
 }
 
 /* Actions */
-.mat-card-actions {
+.mat-mdc-card-actions {
   margin-bottom: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -295,17 +295,17 @@ a:hover {
   display: flex;
 }
 
-.mat-dialog-actions {
+.mat-mdc-dialog-actions {
   margin-bottom: -12px !important;
 }
 
-.mat-card-actions button,
-.mat-dialog-actions button {
+.mat-mdc-card-actions button,
+.mat-mdc-dialog-actions button {
   margin-left: 8px;
 }
 
-.mat-card-actions button:first-child,
-.mat-dialog-actions button:first-child {
+.mat-mdc-card-actions button:first-child,
+.mat-mdc-dialog-actions button:first-child {
   margin-left: 0px;
 }
 
@@ -350,79 +350,92 @@ a:hover {
 
 //End Theme Changes
 
-.mat-checkbox-frame{
+.mdc-checkbox__background {
   border-color: $lightGray;
   border-width: 1px !important;
   border-radius: 0.25rem !important;
 }
 
-.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+.mat-mdc-checkbox-checked.mat-accent .mdc-checkbox__background {
   background-color: $primary-text-color !important;
   border-radius: 0.25rem !important;
 }
 
-.mat-form-field-wrapper {
-  font-family: $font !important;
-  padding: 0;
-  border: 2px solid transparent;
+.mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    font-family: $font !important;
+    padding: 0;
+    border: 2px solid transparent;
 
-  .mat-form-field-flex {
-    margin: 0;
-    padding: 0 1rem !important;
-    background-color: $ghost-white !important;
-    border-radius: 12px !important;
+    .mat-mdc-form-field-flex {
+      margin: 0;
+      padding: 0 1rem !important;
+      background-color: $ghost-white !important;
+      border-radius: 12px !important;
 
-  }
+      .mdc-notched-outline {
+        .mdc-notched-outline__leading {
+          border-top-left-radius: 12px !important;
+          border-bottom-left-radius: 12px !important;
+        }
 
-  .mat-form-field-outline-thick {
-    color: transparent;
-  }
-  
-  .mat-form-field-outline {
-    top: 0 !important;
-
-    .mat-form-field-outline-start {
-      border-radius: 12px 0 0 12px;
-      min-width: 12px;
+        .mdc-notched-outline__trailing {
+          border-top-right-radius: 12px !important;
+          border-bottom-right-radius: 12px !important;
+        }
+      }
     }
 
-    .mat-form-field-outline-end {
-      border-radius: 0 12px 12px 0;
+    .mat-form-field-outline-thick {
+      color: transparent;
     }
-  }
 
-  .mat-form-field-prefix {
-    top: 0.3rem !important;
-    padding-right: 1rem;
+    .mat-form-field-outline {
+      top: 0 !important;
 
-    .mat-icon {
-      color: $gray !important;
+      .mat-form-field-outline-start {
+        border-radius: 12px 0 0 12px;
+        min-width: 12px;
+      }
+
+      .mat-form-field-outline-end {
+        border-radius: 0 12px 12px 0;
+      }
     }
-  }
-  
-  .mat-form-field-infix {
-    border-top: 0;
-    line-height: 1.5;
 
-    .mat-input-element {
-      color: $gray !important;
+    .mat-mdc-form-field-icon-prefix {
+      padding-right: 1rem;
+
+      .mat-icon {
+        color: $gray !important;
+      }
     }
-  }
 
+    .mat-mdc-form-field-infix {
+      border-top: 0;
+      line-height: 1.5;
+
+      .mat-mdc-input-element {
+        color: $gray !important;
+        letter-spacing: 0px;
+      }
+    }
+
+  }
 }
 
 .divider {
   width: 100%;
-    text-align: center;
-    line-height: .01rem;
-    margin: 1.5rem 0;
-    border-bottom: 1px solid $lighterGray;
-    
-    .separator {
-      background: #fff;
-      padding: 0 16px;
-      color: $lightGray;
-    }
+  text-align: center;
+  line-height: .01rem;
+  margin: 1.5rem 0;
+  border-bottom: 1px solid $lighterGray;
+
+  .separator {
+    background: #fff;
+    padding: 0 16px;
+    color: $lightGray;
+  }
 }
 
 .button-spinner {
@@ -440,3 +453,19 @@ a:hover {
     align-items: center;
   }
 }
+
+//Start Button Changes
+
+.mat-mdc-button.mat-mdc-button-base,
+.mat-mdc-raised-button.mat-mdc-button-base,
+.mat-mdc-unelevated-button.mat-mdc-button-base,
+.mat-mdc-outlined-button.mat-mdc-button-base {
+  height: 56px;
+}
+
+.mat-mdc-form-field-hint-wrapper,
+.mat-mdc-form-field-error-wrapper {
+  padding: 0 0 !important;
+}
+
+//End Button Changes

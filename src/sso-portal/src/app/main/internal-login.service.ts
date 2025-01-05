@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { InternalUrlsService } from '@josephbenraz/ngx-common';
+import { InternalUrlsService } from '@josephbenraz/npm-common';
 import {
   SetPassword,
   LoginResult,
