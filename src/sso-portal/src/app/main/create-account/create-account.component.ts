@@ -22,6 +22,8 @@ export class CreateAccountComponent implements OnInit {
   isMfaCodePage: boolean = false;
   form: UntypedFormGroup;
 
+  phoneInputLabels = { mainLabel: null, nationalNumberLabel: 'Number', hintLabel: 'Select country and type your phone number', invalidNumberError: 'Number is not valid', requiredError: 'This field is required' }
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -74,15 +76,15 @@ export class CreateAccountComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  onLogIn(){
+  onLogIn() {
     this.router.navigate(['login']);
   }
 
-  onBackToCreate(){
+  onBackToCreate() {
     this.isMfaCodePage = false;
   }
 
-  sendMfaConfirmationCode(){
+  sendMfaConfirmationCode() {
     const confirmMfa = {
       userEmail: this.form.get('username').value,
       actionType: MfaCode.confirmEmail,

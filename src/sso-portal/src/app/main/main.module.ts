@@ -11,26 +11,28 @@ import { EmailConfirmationSentComponent } from './email-confirmation-sent/email-
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ConfirmRestorePasswordComponent } from './restore-password/confirm-restore-password/confirm-restore-password.component';
 import { ConfirmCreateAccountComponent } from './create-account/confirm-create-account/confirm-create-account.component';
+import { NgxMaterialIntlTelInputComponent } from 'ngx-material-intl-tel-input';
 
 @NgModule({
-    imports: [
-        SharedModule,
-        MainRoutingModule
-    ],
-    declarations: [
-        LoginComponent,
-        ChangePasswordComponent,
-        SetPasswordComponent,
-        RestorePasswordComponent,
-        CreateAccountComponent,
-        EmailConfirmationSentComponent,
-        ConfirmEmailComponent,
-        ConfirmRestorePasswordComponent,
-        ConfirmCreateAccountComponent
-    ],
-    providers: [
-        InternalLoginService
-    ],
-    exports: []
+  imports: [
+    SharedModule,
+    MainRoutingModule,
+    NgxMaterialIntlTelInputComponent
+  ],
+  declarations: [
+    LoginComponent,
+    ChangePasswordComponent,
+    SetPasswordComponent,
+    RestorePasswordComponent,
+    CreateAccountComponent,
+    EmailConfirmationSentComponent,
+    ConfirmEmailComponent,
+    ConfirmRestorePasswordComponent,
+    ConfirmCreateAccountComponent
+  ],
+  providers: [
+    InternalLoginService
+  ],
+  exports: []
 })
 export class MainModule { }
