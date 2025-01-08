@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { ValidationService, NotificationService, CustomValidators } from '@josephbenraz/npm-common';
+import { ValidationService, NotificationService, CustomValidators, EnvironmentsService, EnvironmentsServiceConfig } from '@josephbenraz/npm-common';
 import { CreateMfaModel, MfaCode, MfaData, MfaMode, SignUp, SignUpResult, ValidationRules } from '../../shared/shared.model';
 import { InternalLoginService } from '../internal-login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-account',
@@ -22,7 +23,7 @@ export class CreateAccountComponent implements OnInit {
   isMfaCodePage: boolean = false;
   form: UntypedFormGroup;
 
-  phoneInputLabels = { mainLabel: null, nationalNumberLabel: 'Number', hintLabel: 'Select country and type your phone number', invalidNumberError: 'Number is not valid', requiredError: 'This field is required' }
+  phoneInputLabels = { mainLabel: null, nationalNumberLabel: 'Number', hintLabel: 'Select country and type your phone number', invalidNumberError: 'Number is not valid', requiredError: 'This field is required' };
 
   constructor(
     private router: Router,
@@ -56,18 +57,26 @@ export class CreateAccountComponent implements OnInit {
     }
 
     const model = this.form.value as SignUp;
-    model.sendConfirmationEmail = false;
+    model.sendConfirmationEmail = this.sendConfirmationEmail();
 
     this.isLoading = true;
     this.internalLoginService
       .signUp(model)
       .subscribe(
-        signUpResult => {
-          this.sendMfaConfirmationCode();
-        },
-        error => {
-          this.isLoading = false;
-          this.notificationService.error(error)
+        {
+          next: (data: SignUpResult) => {
+            if (this.sendConfirmationEmail()) {
+              this.router.navigate(['email-confirmation-sent', data.userId]);
+
+            }
+            else {
+              this.sendMfaConfirmationCode();
+            }
+          },
+          error: (error) => {
+            this.isLoading = false;
+            this.notificationService.error(error);
+          }
         }
       )
   }
@@ -107,5 +116,19 @@ export class CreateAccountComponent implements OnInit {
         }
       )
       .add(() => this.isLoading = false);
+  }
+
+  private sendConfirmationEmail(): boolean {
+    const environmentsService = new EnvironmentsService({ companySubdomain: 'tn' } as EnvironmentsServiceConfig);
+    const environmentName = environmentsService.getEnvironmentNameByHostname(window.location.hostname);
+
+    switch (environmentName) {
+      case 'qa':
+        return environment.qa.sendConfirmationEmail;
+      case 'sb':
+        return environment.sb.sendConfirmationEmail;
+      default:
+        return environment.sendConfirmationEmail;
+    }
   }
 }
