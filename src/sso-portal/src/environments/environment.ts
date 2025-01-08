@@ -6,18 +6,21 @@ export const environment = {
   },
   defaultApplication: 'd5069819-1256-4aef-9341-2628237c8ee6',
   googleAnalyticsID: 'G-*******',
+  sendConfirmationEmail: false,
   qa: {
     apiBaseUrl: null,
     authorization: {
       endpoint: null
     },
-    googleAnalyticsID: null
+    googleAnalyticsID: null,
+    sendConfirmationEmail: false,
   },
   sb: {
     apiBaseUrl: null,
     authorization: {
       endpoint: null
     },
-    googleAnalyticsID: null
+    googleAnalyticsID: null,
+    sendConfirmationEmail: false,
   }
 };

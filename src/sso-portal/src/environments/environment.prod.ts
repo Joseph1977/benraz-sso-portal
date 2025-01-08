@@ -6,19 +6,22 @@ export const environment = {
   },
   defaultApplication: null,
   googleAnalyticsID: 'G-888888',
+  sendConfirmationEmail: false,
   qa: {
     apiBaseUrl: 'https://qa.benraz.com/authorization-server/v1',
     authorization: {
       endpoint: 'https://qa.benraz.com/authorization-server/v1/auth/login'
     },
-    googleAnalyticsID: null
+    googleAnalyticsID: null,
+    sendConfirmationEmail: false,
   },
   sb: {
     apiBaseUrl: 'https://api-sb.benraz.com/authorization-server/v1',
     authorization: {
       endpoint: 'https://api-sb.benraz.com/authorization-server/v1/auth/login'
     },
-    googleAnalyticsID: 'G-6GYLSZSYRH'
+    googleAnalyticsID: 'G-6GYLSZSYRH',
+    sendConfirmationEmail: false,
   }
 };
 

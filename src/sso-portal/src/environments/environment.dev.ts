@@ -6,18 +6,21 @@ export const environment = {
   },
   defaultApplication: null,
   googleAnalyticsID: null,
+  sendConfirmationEmail: false,
   qa: {
     apiBaseUrl: null,
     authorization: {
       endpoint: null
     },
-    googleAnalyticsID: null
+    googleAnalyticsID: null,
+    sendConfirmationEmail: false,
   },
   sb: {
     apiBaseUrl: null,
     authorization: {
       endpoint: null
     },
-    googleAnalyticsID: null
+    googleAnalyticsID: null,
+    sendConfirmationEmail: false,
   }
 };
